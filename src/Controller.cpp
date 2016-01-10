@@ -11,7 +11,7 @@
 #include <sstream>
 
 int fifo;
-const bool COMMAS = true;
+const bool COMMAS = false;
 
 void sendInput(const char* s) {
     uint num = write(fifo, s, strlen(s));
