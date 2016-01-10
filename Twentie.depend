@@ -1,0 +1,193 @@
+# depslib dependency file v1.0
+1452029533 source:/home/vaclav/prog/melee/Twentie/main.cpp
+	<iostream>
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/socket.h>
+	<sys/un.h>
+	<thread>
+
+1452263396 source:/home/vaclav/prog/melee/Twentie/src/controller.cpp
+	<stdio.h>
+	<sys/stat.h>
+	<unistd.h>
+	<pwd.h>
+	<string>
+	<iostream>
+	<errno.h>
+	<fcntl.h>
+	<cstring>
+	<string>
+	<sstream>
+
+1452178928 source:/home/vaclav/prog/melee/Twentie/src/main.cpp
+	<iostream>
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/socket.h>
+	<sys/un.h>
+	<thread>
+	<pwd.h>
+	<sstream>
+	"controller.h"
+	"logic.h"
+	"types.h"
+
+1452198320 /home/vaclav/prog/melee/Twentie/src/controller.h
+
+1452362204 source:/home/vaclav/prog/melee/Twentie/src/logic.cpp
+	<iostream>
+	<chrono>
+	<bitset>
+	<algorithm>
+	<stdint.h>
+	<string.h>
+	"logic.h"
+	"controller.h"
+
+1452266362 /home/vaclav/prog/melee/Twentie/src/logic.h
+	"types.h"
+	"state.h"
+	<vector>
+	<tuple>
+
+1452111524 /home/vaclav/prog/melee/Twentie/src/types.h
+	<cstdint>
+
+1452113869 source:/home/vaclav/prog/melee/Twentie/src/state.cpp
+
+1452362481 /home/vaclav/prog/melee/Twentie/src/state.h
+	"types.h"
+
+1452429536 source:/home/vaclav/prog/melee/Twentie/src/AI.cpp
+	"AI.h"
+	"Controller.h"
+
+1452429720 source:/home/vaclav/prog/melee/Twentie/src/Controller.cpp
+	<stdio.h>
+	<sys/stat.h>
+	<unistd.h>
+	<pwd.h>
+	<string>
+	<iostream>
+	<errno.h>
+	<fcntl.h>
+	<cstring>
+	<string>
+	<sstream>
+
+1452427166 source:/home/vaclav/prog/melee/Twentie/src/Main.cpp
+	<iostream>
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/socket.h>
+	<sys/un.h>
+	<thread>
+	<pwd.h>
+	<sstream>
+	"Controller.h"
+	"Logic.h"
+	"Types.h"
+
+1452429316 /home/vaclav/prog/melee/Twentie/src/Controller.h
+	<string>
+
+1452428827 /home/vaclav/prog/melee/Twentie/src/Logic.h
+	"Types.h"
+	"State.h"
+	<vector>
+	<tuple>
+
+1452426974 /home/vaclav/prog/melee/Twentie/src/Types.h
+	<cstdint>
+
+1452428940 /home/vaclav/prog/melee/Twentie/src/State.h
+	"Types.h"
+
+1452113869 source:/home/vaclav/prog/melee/Twentie/src/State.cpp
+
+1452429633 source:/home/vaclav/prog/melee/Twentie/src/Logic.cpp
+	<iostream>
+	<chrono>
+	<bitset>
+	<algorithm>
+	<stdint.h>
+	<cstring>
+	"Logic.h"
+	"Controller.h"
+	"AI.h"
+
+1452429461 /home/vaclav/prog/melee/Twentie/src/AI.h
+	"Types.h"
+	"State.h"
+
+1452429536 source:/home/vaclav/prog/projects/Twentie/src/AI.cpp
+	"AI.h"
+	"Controller.h"
+
+1452429461 /home/vaclav/prog/projects/Twentie/src/AI.h
+	"Types.h"
+	"State.h"
+
+1452426974 /home/vaclav/prog/projects/Twentie/src/Types.h
+	<cstdint>
+
+1452428940 /home/vaclav/prog/projects/Twentie/src/State.h
+	"Types.h"
+
+1452429835 /home/vaclav/prog/projects/Twentie/src/Controller.h
+	<string>
+
+1452429720 source:/home/vaclav/prog/projects/Twentie/src/Controller.cpp
+	<stdio.h>
+	<sys/stat.h>
+	<unistd.h>
+	<pwd.h>
+	<string>
+	<iostream>
+	<errno.h>
+	<fcntl.h>
+	<cstring>
+	<string>
+	<sstream>
+
+1452429633 source:/home/vaclav/prog/projects/Twentie/src/Logic.cpp
+	<iostream>
+	<chrono>
+	<bitset>
+	<algorithm>
+	<stdint.h>
+	<cstring>
+	"Logic.h"
+	"Controller.h"
+	"AI.h"
+
+1452428827 /home/vaclav/prog/projects/Twentie/src/Logic.h
+	"Types.h"
+	"State.h"
+	<vector>
+	<tuple>
+
+1452427166 source:/home/vaclav/prog/projects/Twentie/src/Main.cpp
+	<iostream>
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/socket.h>
+	<sys/un.h>
+	<thread>
+	<pwd.h>
+	<sstream>
+	"Controller.h"
+	"Logic.h"
+	"Types.h"
+
+1452113869 source:/home/vaclav/prog/projects/Twentie/src/State.cpp
+

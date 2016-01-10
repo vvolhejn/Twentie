@@ -1,0 +1,28 @@
+804d7420        global frames
+00479d30        current menu
+804530E0        p1 %
+80453F70        p2 %
+80453090        p1 x
+80453094        p1 y
+80453F20        p2 x
+80453F24        p2 y
+81118DEC        p1 cursor x 
+81118DF0        p1 cursor y
+0111826C        p2 cursor x
+01118270        p2 cursor y
+803F0E0A        p1 selection
+803F0E2E        p2 selection
+
+
+Player structure values:
+
+8C      facing
+140     is in air
+E0      air speed x
+E4      air speed y
+EC      knockback x
+F0      knockback x
+70      action state
+8F4     action state frames
+23A0    hitstun left
+19BC    hitlag (freeze frames)
