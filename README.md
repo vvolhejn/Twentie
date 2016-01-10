@@ -32,3 +32,6 @@ Then, right click your Melee ISO, go to Properties->Gecko Codes->check "Netplay 
 This allows Melee to be at the character select screen upon startup, for example.
 
 5. Run ```bin/Debug/Twentie``` to start the bot. Then start Melee in Dolphin. You must start the bot before Melee. 
+
+
+*(Note: Because of how Dolphin reads to the named pipe, it will expect different decimal marks based on your locale (decimal point vs. decimal comma). If the bot's inputs seem strange (ex: doesn't select its character correctly), try changing the COMMAS constant in Controller.cpp and then recompiling.)*
