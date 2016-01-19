@@ -26,3 +26,5 @@ F0      knockback x
 8F4     action state frames
 23A0    hitstun left
 19BC    hitlag (freeze frames)
+19C8    jumps used
+19EC    vurnerability: 0 = normal, 1 = invulnerable, 2 = intangible

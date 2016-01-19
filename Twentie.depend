@@ -63,11 +63,11 @@
 1452362481 /home/vaclav/prog/melee/Twentie/src/state.h
 	"types.h"
 
-1452429536 source:/home/vaclav/prog/melee/Twentie/src/AI.cpp
+1452515503 source:/home/vaclav/prog/melee/Twentie/src/AI.cpp
 	"AI.h"
 	"Controller.h"
 
-1452429720 source:/home/vaclav/prog/melee/Twentie/src/Controller.cpp
+1453219721 source:/home/vaclav/prog/melee/Twentie/src/Controller.cpp
 	<stdio.h>
 	<sys/stat.h>
 	<unistd.h>
@@ -80,7 +80,7 @@
 	<string>
 	<sstream>
 
-1452427166 source:/home/vaclav/prog/melee/Twentie/src/Main.cpp
+1452525271 source:/home/vaclav/prog/melee/Twentie/src/Main.cpp
 	<iostream>
 	<errno.h>
 	<stdio.h>
@@ -95,35 +95,40 @@
 	"Logic.h"
 	"Types.h"
 
-1452429316 /home/vaclav/prog/melee/Twentie/src/Controller.h
+1452617151 /home/vaclav/prog/melee/Twentie/src/Controller.h
 	<string>
 
-1452428827 /home/vaclav/prog/melee/Twentie/src/Logic.h
-	"Types.h"
-	"State.h"
+1452525479 /home/vaclav/prog/melee/Twentie/src/Logic.h
 	<vector>
 	<tuple>
+	"Types.h"
+	"State.h"
+	"ai/AI.h"
 
-1452426974 /home/vaclav/prog/melee/Twentie/src/Types.h
+1452515503 /home/vaclav/prog/melee/Twentie/src/Types.h
 	<cstdint>
 
-1452428940 /home/vaclav/prog/melee/Twentie/src/State.h
+1452717818 /home/vaclav/prog/melee/Twentie/src/State.h
 	"Types.h"
 
-1452113869 source:/home/vaclav/prog/melee/Twentie/src/State.cpp
-
-1452429633 source:/home/vaclav/prog/melee/Twentie/src/Logic.cpp
+1453222419 source:/home/vaclav/prog/melee/Twentie/src/State.cpp
+	"State.h"
+	<bitset>
 	<iostream>
-	<chrono>
+	<cstring>
+	<algorithm>
+
+1453217926 source:/home/vaclav/prog/melee/Twentie/src/Logic.cpp
+	<iostream>
 	<bitset>
 	<algorithm>
 	<stdint.h>
 	<cstring>
 	"Logic.h"
 	"Controller.h"
-	"AI.h"
+	"ai/SandbagAI.h"
 
-1452429461 /home/vaclav/prog/melee/Twentie/src/AI.h
+1452515503 /home/vaclav/prog/melee/Twentie/src/AI.h
 	"Types.h"
 	"State.h"
 
@@ -190,4 +195,133 @@
 	"Types.h"
 
 1452113869 source:/home/vaclav/prog/projects/Twentie/src/State.cpp
+
+1453233498 source:/home/vaclav/prog/melee/Twentie/src/ai/SandbagAI.cpp
+	<iostream>
+	<typeinfo>
+	"SandbagAI.h"
+	"Controller.h"
+	"Logic.h"
+	"action/AllActions.h"
+
+1452540394 /home/vaclav/prog/melee/Twentie/src/ai/SandbagAI.h
+	"AI.h"
+
+1452526347 /home/vaclav/prog/melee/Twentie/src/ai/AI.h
+	"Types.h"
+	"State.h"
+
+1452524902 source:/home/vaclav/prog/melee/Twentie/src/tech/Ledgedash.cpp
+	"Ledgedash.h"
+
+1452524896 /home/vaclav/prog/melee/Twentie/src/tech/Ledgedash.h
+	"Tech.h"
+	"State.h"
+
+1452524547 /home/vaclav/prog/melee/Twentie/src/tech/Tech.h
+	"Types.h"
+
+1452525271 /home/vaclav/prog/melee/Twentie/src/Main.cpp
+	<iostream>
+	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/socket.h>
+	<sys/un.h>
+	<thread>
+	<pwd.h>
+	<sstream>
+	"Controller.h"
+	"Logic.h"
+	"Types.h"
+
+1453220697 source:/home/vaclav/prog/melee/Twentie/src/action/Ledgedash.cpp
+	"Ledgedash.h"
+	<iostream>
+	<sys/time.h>
+
+1453220803 /home/vaclav/prog/melee/Twentie/src/action/Ledgedash.h
+	"action/Action.h"
+	"State.h"
+
+1453221607 /home/vaclav/prog/melee/Twentie/src/action/Action.h
+	"Types.h"
+	"State.h"
+	"Controller.h"
+
+1452529620 source:/home/vaclav/prog/melee/Twentie/src/action/Doublejump.cpp
+	"Doublejump.h"
+	<iostream>
+
+1452528416 /home/vaclav/prog/melee/Twentie/src/action/Doublejump.h
+	"action/Action.h"
+	"State.h"
+
+1452537616 source:/home/vaclav/prog/melee/Twentie/src/action/FoxSideB.cpp
+	"FoxSideB.h"
+	<iostream>
+
+1452624041 source:/home/vaclav/prog/melee/Twentie/src/action/Tech.cpp
+	"Tech.h"
+
+1452528425 /home/vaclav/prog/melee/Twentie/src/action/FoxSideB.h
+	"action/Action.h"
+	"State.h"
+
+1452624056 /home/vaclav/prog/melee/Twentie/src/action/Tech.h
+	"action/Action.h"
+	"State.h"
+
+1453232695 /home/vaclav/prog/melee/Twentie/src/action/AllActions.h
+	"FoxSideB.h"
+	"Ledgedash.h"
+	"Tech.h"
+	"DI.h"
+	"FoxUpB.h"
+	"WaitFor.h"
+
+1453232146 /home/vaclav/prog/melee/Twentie/src/action/DI.h
+	"action/Action.h"
+	"State.h"
+
+1453232113 source:/home/vaclav/prog/melee/Twentie/src/action/DI.cpp
+	"DI.h"
+	<iostream>
+	<cmath>
+
+1452714516 source:/home/vaclav/prog/melee/Twentie/src/action/OnSpawn.cpp
+	"OnSpawn.h"
+	<iostream>
+
+1452714497 /home/vaclav/prog/melee/Twentie/src/action/OnSpawn.h
+	"action/Action.h"
+	"State.h"
+
+1453222529 source:/home/vaclav/prog/melee/Twentie/src/action/FoxUpB.cpp
+	"FoxUpB.h"
+	<iostream>
+	<cmath>
+
+1452722884 /home/vaclav/prog/melee/Twentie/src/action/FoxUpB.h
+	"action/Action.h"
+	"State.h"
+
+1453223983 source:/home/vaclav/prog/melee/Twentie/src/action/Drift.cpp
+	"Drift.h"
+	<iostream>
+
+1453225731 /home/vaclav/prog/melee/Twentie/src/action/Drift.h
+	<functional>
+	"action/Action.h"
+	"State.h"
+
+1453233017 /home/vaclav/prog/melee/Twentie/src/action/WaitFor.h
+	<functional>
+	"action/Action.h"
+	"State.h"
+
+1453233030 source:/home/vaclav/prog/melee/Twentie/src/action/WaitFor.cpp
+	"WaitFor.h"
+	<iostream>
 

@@ -1,6 +1,11 @@
 #pragma once
 #include "Types.h"
 
+const u32 ME = 1; //the AI's slot
+
+
+const float EDGE_X = 87.4857;
+const float EDGE_Y = -14.4;
 //global
 const u32 A_FRAME = 0x804d7420;
 const u32 A_CUR_MENU = 0x00479d30;
@@ -31,26 +36,8 @@ const u32 A_ACTION_STATE = 0x70;
 const u32 A_ACTION_STATE_FRAME = 0x8F4;
 const u32 A_HITSTUN_LEFT = 0x23A0;
 const u32 A_HITLAG_LEFT = 0x19BC;
-
-struct Player {
-    u16 percent;
-    u8 stock;
-    bool facingRight, inAir;
-    float x, y;
-    float airSpeedX, airSpeedY;
-    float knockbackX, knockbackY;
-    float cursorX, cursorY;
-    u8 character;
-    u32 actionState;
-    float actionStateFrame;
-    float hitstunLeft, hitlagLeft;
-};
-
-struct State {
-    Player players[4];
-    u32 frame;
-    u32 curMenu;
-};
+const u32 A_JUMPS_USED = 0x19C8;
+const u32 A_VURNERABILITY = 0x19EC; //0 = normal, 1 = invulnerable, 2 = intangible
 
 enum MENU {
     CHARACTER_SELECT = 0,
@@ -87,7 +74,7 @@ enum CHARACTER {
     ROY = 24
 };
 
-//from the cpu-level-11 project. currently unused.
+//from the cpu-level-11 project.
 enum ACTION {
     ON_HALO = 0x0d,
     STANDING = 0x0e,
@@ -104,6 +91,7 @@ enum ACTION {
     JUMPING_ARIAL_FORWARD = 0x1b,
     JUMPING_ARIAL_BACKWARD = 0x1c,
     FALLING = 0x1D,	//The "wait" state of the air.
+    SPECIAL_FALL = 0x23,
     CROUCH_START = 0x27, //Going from stand to crouch
     CROUCHING = 0x28,
     CROUCH_END = 0x29, //Standing up from crouch
@@ -150,6 +138,12 @@ enum ACTION {
     DAMAGE_FLY_LOW = 0x59,
     DAMAGE_FLY_TOP = 0x5a,
     DAMAGE_FLY_ROLL = 0x5b,
+    PASSIVE = 0xC7, //various tech animations
+    PASSIVE_STAND_F = 0xC8,
+    PASSIVE_STAND_B = 0xC9,
+    PASSIVE_WALL = 0xCA,
+    PASSIVE_WALL_JUMP = 0xCB,
+    PASSIVE_CEIL = 0xCC,
     SHIELD_START = 0xb2,
     SHIELD = 0xb3,
     SHIELD_RELEASE = 0xb4,
@@ -179,16 +173,16 @@ enum ACTION {
     NEUTRAL_B_ATTACKING = 0x157,
     NEUTRAL_B_CHARGING_AIR = 0x15A,
     NEUTRAL_B_ATTACKING_AIR = 0x15B,
-    SWORD_DANCE_1 = 0x15d,
-    SWORD_DANCE_2_HIGH = 0x15e,
-    SWORD_DANCE_2_MID = 0x15f,
-    SWORD_DANCE_3_HIGH = 0x160,
-    SWORD_DANCE_3_MID = 0x161,
-    SWORD_DANCE_3_LOW = 0x162,
+    SWORD_DANCE_1 = 0x15d, //
+    SIDE_B_START = 0x15e, //SWORD_DANCE_2_HIGH
+    SIDE_B = 0x15f, //SWORD_DANCE_2_MID
+    SIDE_B_END = 0x160, //SWORD_DANCE_3_HIGH
+    /*UP_B_START_GROUND = 0x161, //SWORD_DANCE_3_MID
+    UP_B_START_AIR = 0x162, //SWORD_DANCE_3_LOW
     SWORD_DANCE_4_HIGH = 0x163,
-    SWORD_DANCE_4_MID = 0x164,
+    UP_B = 0x164, //SWORD_DANCE_4_MID
     SWORD_DANCE_4_LOW = 0x165,
-    SWORD_DANCE_1_AIR = 0x166,
+    UP_B_END = 0x166, //SWORD_DANCE_1_AIR
     SWORD_DANCE_2_HIGH_AIR = 0x167,
     SWORD_DANCE_2_MID_AIR = 0x168,
     SWORD_DANCE_3_HIGH_AIR = 0x169,
@@ -196,17 +190,62 @@ enum ACTION {
     SWORD_DANCE_3_LOW_AIR = 0x16b,
     SWORD_DANCE_4_HIGH_AIR = 0x16c,
     SWORD_DANCE_4_MID_AIR = 0x16d,
-    SWORD_DANCE_4_LOW_AIR = 0x16e,
-    FIREFOX_WAIT_GROUND = 0x161, //Firefox wait on the ground
-    FIREFOX_WAIT_AIR = 0x162, //Firefox wait in the air
-    FIREFOX_GROUND = 0x163, //Firefox on the ground
-    FIREFOX_AIR = 0x164, //Firefox in the air
+    SWORD_DANCE_4_LOW_AIR = 0x16e,*/
+    //fox
+    FOX_UP_B_START_GROUND = 0x161, //Firefox wait on the ground
+    FOX_UP_B_START_AIR = 0x162, //Firefox wait in the air
+    FOX_UP_B_GROUND = 0x163, //Firefox on the ground
+    FOX_UP_B_AIR = 0x164, //Firefox in the air
+    FOX_UP_B_END = 0x166,
     DOWN_B_GROUND_START = 0x168,
     DOWN_B_GROUND = 0x169,
     DOWN_B_STUN = 0x16d, //Fox is stunned in these frames
     DOWN_B_AIR = 0x16e,
-    UP_B_GROUND = 0x16f,
-    UP_B = 0x170,	//The upswing of the UP-B. (At least for marth)
+    //UP_B_GROUND = 0x16f,
+    //UP_B = 0x170,	//The upswing of the UP-B. (At least for marth)
     MARTH_COUNTER = 0x171,
     MARTH_COUNTER_FALLING = 0x173,
+
+    //note that this is not an actual state from the game, just a number to see that values higher than this are invalid
+    MAXIMUM_STATE = 0x200,
+};
+
+
+struct Player {
+    u16 percent;
+    u8 stock;
+    bool facingRight, inAir;
+    float x, y;
+    float airSpeedX, airSpeedY;
+    float knockbackX, knockbackY;
+    float cursorX, cursorY;
+    u8 character;
+    ACTION actionState;
+    float actionStateFrame;
+    float hitstunLeft, hitlagLeft;
+    float rawHitstunF; //unparsed, also means other things
+    u32 rawHitstunI;
+    u8 jumpsUsed;
+    u8 vurnerability;
+
+    float toCenter() const; //controller input towards center stage
+    bool inTumble() const;
+    bool inLag() const;
+};
+
+class State {
+public:
+    Player players[4];
+    Player &me = players[ME];
+    u32 frame;
+    u32 curMenu;
+    void update(u32 pos, u32 val, s16 player);
+    bool isOffstage(u16 p) const;
+    float distanceToEdge(u16 p) const;
+private:
+    //The absolute menu value changes between installations for some reason, although the relative difference is constant.
+    //To fix this, we save the value for character select and calculate the values off of that.
+    //However, this means that the bot has to be started before Melee in Dolphin.
+    u32 menuOffset = 0;
+    void updateHitstun(u16 player);
 };

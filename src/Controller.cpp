@@ -14,26 +14,29 @@ int fifo;
 const bool COMMAS = false;
 
 void sendInput(const char* s) {
+    //std::cout<<s;
     uint num = write(fifo, s, strlen(s));
     if(num < strlen(s)) {
         std::cout << "Not all data written to pipe!" << std::endl;
     }
 }
 
-void setButton(std::string button, bool press) {
-    sendInput(((press ? "PRESS " : "RELEASE ") + button + "\n").c_str());
+void setButton(const char* button, const bool press) {
+    char buf[64];
+    sprintf(buf, "%s %s\n", press?"PRESS":"RELEASE", button);
+    sendInput(buf);
 }
 
-void setAnalogButton(std::string button, float val) {
+void setAnalogButton(const char* button, const float val) {
     char buf[64];
-    sprintf(buf, "SET %s %.6f\n", button.c_str(), val);
+    sprintf(buf, "SET %s %.6f\n", button, val);
     if(COMMAS) { //LOCALE FIX - COMMAS INSTEAD OF POINTS
         buf[7] = ',';
     }
     sendInput(buf);
 }
 
-void setStick(bool isLeft, float x, float y) {
+void setStick(const bool isLeft, const float x, const float y) {
     char buf[64];
     sprintf(buf, "SET %s %.6f %.6f\n", isLeft ? "MAIN" : "C", x, y);
     if(COMMAS) {//LOCALE FIX - COMMAS INSTEAD OF POINTS
@@ -46,6 +49,13 @@ void setStick(bool isLeft, float x, float y) {
 void resetInputs() {
     setStick(true, 0.5, 0.5);
     setStick(false, 0.5, 0.5);
+    setButton("A", false);
+    setButton("B", false);
+    setButton("X", false);
+    setButton("Y", false);
+    setButton("Z", false);
+    setAnalogButton("L", 0.0);
+    setAnalogButton("R", 0.0);
 }
 
 void controllerInit() {
@@ -60,4 +70,3 @@ void controllerInit() {
     std::cout << "Pipe started." << std::endl;
     resetInputs();
 }
-

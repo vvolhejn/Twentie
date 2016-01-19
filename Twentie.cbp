@@ -14,6 +14,7 @@
 				<Option projectCompilerOptionsRelation="0" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="src" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -38,8 +39,6 @@
 		<Linker>
 			<Add option="-pthread" />
 		</Linker>
-		<Unit filename="src/AI.cpp" />
-		<Unit filename="src/AI.h" />
 		<Unit filename="src/Controller.cpp" />
 		<Unit filename="src/Controller.h" />
 		<Unit filename="src/Logic.cpp" />
@@ -48,6 +47,25 @@
 		<Unit filename="src/State.cpp" />
 		<Unit filename="src/State.h" />
 		<Unit filename="src/Types.h" />
+		<Unit filename="src/action/Action.h" />
+		<Unit filename="src/action/AllActions.h" />
+		<Unit filename="src/action/DI.cpp" />
+		<Unit filename="src/action/DI.h" />
+		<Unit filename="src/action/Doublejump.cpp" />
+		<Unit filename="src/action/Doublejump.h" />
+		<Unit filename="src/action/FoxSideB.cpp" />
+		<Unit filename="src/action/FoxSideB.h" />
+		<Unit filename="src/action/FoxUpB.cpp" />
+		<Unit filename="src/action/FoxUpB.h" />
+		<Unit filename="src/action/Ledgedash.cpp" />
+		<Unit filename="src/action/Ledgedash.h" />
+		<Unit filename="src/action/OnSpawn.cpp" />
+		<Unit filename="src/action/OnSpawn.h" />
+		<Unit filename="src/action/Tech.cpp" />
+		<Unit filename="src/action/Tech.h" />
+		<Unit filename="src/ai/AI.h" />
+		<Unit filename="src/ai/SandbagAI.cpp" />
+		<Unit filename="src/ai/SandbagAI.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
