@@ -1,8 +1,13 @@
 # Twentie
 Twentie is a Super Smash Bros. Melee AI for [Dolphin Emulator](https://github.com/dolphin-emu/dolphin). 
 
-Currently there is support for communicating with the emulator both in output - making inputs in-game - and input - reading the game's state from memory and parsing it into a high-level language.
-The AI itself is currently primitive - it only knows how to tech when in the air. 
+As it stands, the AI plays Fox and is defense-only. It knows how to:
+- Recover, using jump, up-B, or side-B, depending on its position (however, it is very predictable and makes no attempt to mix up its recovery)
+- Consistently perform invincible ledgedashes
+- Combo DI and survival DI depending on the strength of the knockback
+- Smash DI at a TAS level by making a Smash DI input every frame of hitlag. The bot will move multiple character lengths upon getting a knee to the face, for example.
+- Trajectory DI in a perfectly perpendicular angle to get the best DI
+- Tech nearly everything when falling to the ground (in a random direction), also attempts to tech the ground when hit by low angle attacks (aka [Amsah tech](https://youtu.be/_V4K3S5b34c?t=65)). This means the AI will survive downsmashes to ridiculous percents.
 
 ##Installation
 Tested on Ubuntu 14.04. This will only work on Linux because of how Dolphin handles the communication (named pipes, Unix sockets).
